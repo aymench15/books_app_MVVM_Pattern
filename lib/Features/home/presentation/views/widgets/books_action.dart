@@ -1,4 +1,5 @@
 import 'package:books_app/Features/home/data/models/book_model/book_model.dart';
+import 'package:books_app/core/theme/app_colors/app_colors_darkmode.dart';
 import 'package:books_app/core/utils/function/launch_url.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -32,7 +33,7 @@ class BooksAction extends StatelessWidget {
             },
             fontSize: 16,
             text: getText(bookModel),
-            backgroundColor: const Color(0xffEF8262),
+            backgroundColor: AppNightColors.appSecondeColor,
             textColor: Colors.white,
             borderRadius: const BorderRadius.only(
               topRight: Radius.circular(16),

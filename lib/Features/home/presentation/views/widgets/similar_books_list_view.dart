@@ -13,7 +13,7 @@ class SimilarBooksListview extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SimilarBooksCubit, SimilarBooksState>(
       builder: (context, state) {
-        if (state is SimilarBooksSuccess) {
+        if (state is SimilarBooksSuccess){
           return SizedBox(
             height: MediaQuery.of(context).size.height * .15,
             child: ListView.builder(

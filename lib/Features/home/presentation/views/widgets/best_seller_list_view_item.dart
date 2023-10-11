@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../constants.dart';
+import '../../../../../core/utils/constants.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
 import 'book_rating.dart';
@@ -52,7 +52,9 @@ class BookListViewItem extends StatelessWidget {
                   ),
                   Text(
                     bookModel.volumeInfo.authors![0],
-                    style: Styles.textStyle14,
+                    style: Styles.textStyle14.copyWith(
+                    ),
+                    
                   ),
                   const SizedBox(
                     height: 3,

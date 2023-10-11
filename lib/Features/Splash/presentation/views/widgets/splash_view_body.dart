@@ -1,12 +1,7 @@
-import 'package:books_app/Features/home/presentation/views/home_view.dart';
-import 'package:books_app/constants.dart';
 import 'package:books_app/core/utils/app_router.dart';
 import 'package:books_app/core/utils/assets.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-import 'sliding_text.dart';
 
 class SplashViewbody extends StatefulWidget {
   const SplashViewbody({Key? key}) : super(key: key);
@@ -17,61 +12,37 @@ class SplashViewbody extends StatefulWidget {
 
 class _SplashViewbodyState extends State<SplashViewbody>
     with SingleTickerProviderStateMixin {
-  late AnimationController animationController;
-  late Animation<Offset> slidingAnimation;
-
   @override
   void initState() {
     super.initState();
-    initSlidingAnimation();
 
     navigateToHome();
   }
 
   @override
-  void dispose() {
-    super.dispose();
-
-    animationController.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Image.asset(AssetsData.logo),
-        const SizedBox(
-          height: 4,
-        ),
-        SlidingText(slidingAnimation: slidingAnimation),
-      ],
+    return Center(
+      child: Padding(
+          padding: const EdgeInsets.only(top: 50, bottom: 20),
+          child: Container(
+            height: 140,
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(60),
+            ),
+            child: Image.asset(
+              AssetsData.logo,
+              height: 130,
+            ),
+          )),
     );
-  }
-
-  void initSlidingAnimation() {
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 1),
-    );
-
-    slidingAnimation =
-        Tween<Offset>(begin: const Offset(0, 2), end: Offset.zero)
-            .animate(animationController);
-
-    animationController.forward();
   }
 
   void navigateToHome() {
     Future.delayed(
       const Duration(seconds: 2),
       () {
-        // Get.to(() => const HomeView(),
-        //     // calculations
-        //     transition: Transition.fade,
-        //     duration: kTranstionDuration);
-
         GoRouter.of(context).push(AppRouter.kHomeView);
       },
     );

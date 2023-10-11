@@ -11,7 +11,7 @@ class BestSellerListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<NewsetBooksCubit, NewsetBooksState>(
+    return BlocConsumer<NewsetBooksCubit, NewsetBooksState>(
       builder: (context, state) {
         if (state is NewsetBooksSuccess) {
           return ListView.builder(
@@ -33,6 +33,8 @@ class BestSellerListView extends StatelessWidget {
           return const CustomLoadingIndicator();
         }
       },
+      listener: (context, state) {
+      }
     );
   }
 }
